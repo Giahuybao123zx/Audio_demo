@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <button id="mybd">Clicke me</button>
+<button id="myP"></button> -->
+<div id="mybd">
+    <p class="myCla">Click 1</p>
+    <p class ="myCla">Click 2</p>
+</div>
+
+<body>
+    <script>
+    // const p = document.getElementById("myP");
+    // const div = document.getElementById("mybd");
+    // div.addEventListener("click", function(){
+    //     alert("Hello")
+    // })
+    
+
+    // p.addEventListener("click", function() {
+    //     alert("Day la console thu 2");
+    // })
+    // let f = document.getElementById("kk")
+    // f.addEventListener("click", function() {
+    //     alert("Console thu 3")
+    // })
+
+    const g = document.getElementsByClassName("myCla")
+    for(let i = 0; i < g.length; i ++) {
+        g[i].addEventListener("click", function() {
+            alert("Day la console ",  (i+1))
+        })
+    }
+</script>
+</body>
+</html>

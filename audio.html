@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trình phát nhạc</title>
+</head>
+<body >
+    <h1>Chào mừng đến với GiaBapAudio HTML</h1>
+    <button id="changeBackgroundColor">Đổi màu nền trang</button>
+    <div id="changecolor"></div>
+
+    <h3>-------------------------------------------------------------------------- </h3>
+    <div id="ngaongo"></div>
+    <button id="addanh"">Nhấn để thêm ảnh nền</button>
+    <h2>Ngáo Ngơ</h2>
+    <button id="start">Bắt đầu chạy</button>
+    <div id="tex-container"></div> <!-- Nơi hiển thị chữ -->
+    <div id="audio-container"></div>
+    <button id="play-button">Ngáo Ngơ</button>
+    <button id="picc">Nhấn vào </button>
+    <div id="imgage-container"></div>
+    <h1>------------------------------------------------------------------------------</h1>
+    <div id="audio-tanca"></div>
+    <h2>Tan ca</h2>
+    <button id="Tan ca">Tan ca</button>
+    <h2>------------------------------------------------------------------------------</h1>
+    <div id="weamtlinh"></div>
+    <button id="shhhhhh">Shhhhhhh......</button>
+    <!-- <video width="500" controls>
+  <source src="C:\Users\PC\OneDrive\Videos\Captures\(1) [Vietsub+ Lyrics] The Nights- Acvicii _ Cover by Angie N. __ Lofi Chill - YouTube - Google Chrome 2024-10-31 09-43-48.mp4" type="video/mp4"> -->
+   <h1>------------------------------------------------------------------------------------------------------------</h1>  
+  <div id="videohere"></div>
+     <button id="Playvideos">Play Video</button>
+   <script>
+      const audio = document.createElement("audio");
+      audio.src = "c:/Users/PC/Downloads/hieuthuhai-atus-jsol-erik-ft-orange--anh-trai-say-hi.mp3 "; 
+      audio.type = "audio/mp3"; 
+      audio.controls = true;
+      const playButton = document.getElementById("play-button");
+      playButton.addEventListener("click", () => {
+        const x =document.getElementById("audio-container")
+        if(!x.contains(audio)){
+            x.appendChild(audio)
+        }
+        if(audio.paused) {
+            audio.play();
+            playButton.textContent = "Dừng nhạc";
+        } else{
+            audio.pause();
+            playButton.textContent = "Phát nhạc";
+        }
+      })
+    const tanca = document.createElement("audio");
+    tanca.src="C:/Users/PC/OneDrive/Music/Playlists/TANCA-DatOzyPiaLinh-12060735.mp3"
+    tanca.type="audio/mp3";
+    tanca.controls = true;
+    const play = document.getElementById("Tan ca") 
+    play.addEventListener("click", () =>{
+     const y =   document.getElementById("audio-tanca")
+     if(!y.contains(tanca)) {
+        y.appendChild(tanca)
+     }
+        if(tanca.paused) {
+            tanca.play();
+            play.textContent = "Dừng nhạc";
+        } else{
+            tanca.pause();
+            play.textContent = "Tiếp tục"
+    }})  
+
+// const an = document.getElementById("picc")
+// an.addEventListener("click", () => {
+// const pic = document.getElementById("imgage-container")
+
+// const img = document.querySelector("img")
+// if(!img) {
+//     const img = document.createElement("img")
+// img.src = "C:/Users/PC/OneDrive/Pictures/Saved Pictures/z5814309481975_743f748ce572cc25ffa8bcd4e0ca4669.jpg";
+// img.alt = "Mô tả ảnh";
+// img.style.maxWidth = "100%"; 
+// img.style.height = "auto"; 
+
+// pic.appendChild(img);
+// }});
+
+// const ds = document.getElementById("clear")
+// ds.addEventListener("click", () => {
+//     const pic = document.getElementById("imgage-container")
+//     let img = pic.querySelector("img");
+//     if(img){
+//     pic.removeChild(img)
+//     }});
+
+const an = document.getElementById("picc");
+an.addEventListener("click", () => {
+    let pic = document.getElementById("imgage-container");
+const img = document.createElement("img")
+img.src = "C:/Users/PC/OneDrive/Pictures/Saved Pictures/z5814309481975_743f748ce572cc25ffa8bcd4e0ca4669.jpg";
+img.alt = "Mô tả ảnh";
+img.style.maxWidth = "100%"; 
+img.style.height = "auto"; 
+const existingImg = pic.querySelector("img");
+if(!existingImg) {
+    pic.appendChild(img);
+    an.textContent = "Gỡ ảnh"
+} else {
+    pic.removeChild(existingImg);
+    an.textContent = "Hiện ảnh";
+}
+})
+
+const color = document.getElementById("changeBackgroundColor")
+    color.addEventListener("click", () => {
+        if (document.body.style.backgroundColor === "rgb(56, 88, 115)") { // Mã RGB của DarkGray
+        document.body.style.backgroundColor = "";
+        color.textContent = "Đổi màu nền trang";
+        } else {
+        document.body.style.backgroundColor = "rgb(56, 88, 115)";
+        color.textContent = "Trở lại màu gốc";
+        } 
+}
+    );
+
+    const vid = document.createElement("video");
+    vid.src="C:/Users/PC/OneDrive/Videos/Captures/(1) [Vietsub+ Lyrics] The Nights- Acvicii _ Cover by Angie N. __ Lofi Chill - YouTube - Google Chrome 2024-10-31 09-43-48.mp4"
+    vid.type = "video/mp4"
+    vid.controls = true;
+    vid.width = "600";
+    const vd = document.getElementById("Playvideos")
+   vd.addEventListener("click", ()=> {
+    const pl = document.getElementById("videohere") 
+    if(!pl.contains(vid)) {
+        pl.appendChild(vid);
+        vid.play();
+    }
+
+})
+const nn =document.getElementById("addanh")
+nn.addEventListener("click", () => {
+const a = document.createElement("img");
+a.src = "C:/Users/PC/OneDrive/Pictures/Saved Pictures/lyrics-bai-hat-ngao-ngo-cua-show-anh-trai-say-hi-3-234444.jpg";
+a.alt = "Mô tả ảnh";
+a.style.maxWidth = "50%"
+a.style.height = "auto";
+const x = document.getElementById("ngaongo")
+
+let q = x.querySelector("img");
+if(!q) {
+    x.appendChild(a);
+    nn.textContent = "Gỡ ảnh";
+} else{
+    x.removeChild(q);
+    nn.textContent = "Hiện ảnh"
+}
+}
+) 
+function hienthichu(text, speed, callback) {
+            let index = 0;
+            function gg() {
+            if (index < text.length) {
+                
+                if (text.charAt(index) === "\n") {
+                    document.getElementById("tex-container").innerHTML += "<br>";
+                } else {
+                    document.getElementById("tex-container").innerHTML += text.charAt(index);
+                }
+                index++; 
+                setTimeout(gg, speed);
+            } else if (callback) {
+                callback();
+            }
+        }
+        gg();
+    }
+    
+    const wean = document.createElement("audio");
+    wean.src="C:/Users/PC/OneDrive/Music/Playlists/1endqejfh2.mp3";
+    wean.type = "audio/mp3";
+    wean.controls = true
+         const sh = document.getElementById("shhhhhh");
+             sh.addEventListener("click", () => {
+    const playwean = document.getElementById("weamtlinh");
+    if(!playwean.contains(wean)) {
+        playwean.appendChild(wean);
+    }
+    if(wean.paused){
+        wean.play();
+        sh.textContent = "Dừng nhạc"
+    } else{
+        wean.pause();
+        sh.textContent = "Phát nhạc";
+    }
+})
+
+
+
+
+        const st = document.getElementById("start");
+        st.addEventListener("click", () => {
+            let x = [
+                "Hey!\n",
+                " ",
+                "Anh vẫn nhớ tối đó khi hôn nhau đầu tiên là vào ngày mấy\n", 
+                "Mình cùng bước dưới phố con tim đập nhanh ngày đầu nắm tay\n",
+                "Từng một bầu trời đắm say\n",
+                " ",
+                "Giờ tìm lại cảm xúc nơi đâu ngày hôm ấy\n",
+                " ",
+                "Đằng nào thì mình cũng bước tiếp thôi\n",
+                " ",
+                "Anh quên hết rồi\n",
+                " ",
+                "Hạnh phúc hơn ở nơi không có em\n",
+                " ",
+                "Gặp người mới luôn ở kế bên chịu lắng nghe\n",
+                " ",
+                "Một người chẳng cố cho rằng tất cả tại anh sai\n",
+                " ",
+                "Dù cho anh đã cố dối lòng em vẫn luôn trong đầu\n",
+                "Giờ anh cứ lơ ngơ ôm giấc mơ không màu\n",
+                "Chỉ mong em sẽ quay lại\n",
+                " ",
+                "So baby please make up your mind...\n",
+                " ",
+                "Anh cứ đi trên con đường xưa khi ta bên nhau\n",
+                "Tìm về nơi trước kia mình say sưa bao đêm thâu\n",
+                "Chờ một ngày tình cờ mình bước qua nhau 1 giây thôi\n",
+                "Để một lần được thấy như ta còn chung đôi...\n",
+                "Năm tháng qua anh luôn vờ như ta chưa chia ly\n",
+                "Dù hàng trăm lý do để con tim quên em đi\n",
+                " ",
+                "Từng ngày đều phải cố để luôn tươi cười\n",
+                "Trở thành một thằng ngáooooooo ",
+                "ngơ\n",
+                "Anh ngáo ngơ vì em mà..."
+            ];
+
+            let speeds = [
+                50,  
+                1000,
+                45 ,   
+                45,   
+                45,   
+                800,
+                45,
+                900,   
+                55,
+                200,
+                55,
+                650, 
+                80,
+                200,   
+                65,
+                870,  
+                47,
+                450, 
+                70,   
+                80 ,  
+                70,
+                1170,
+                60,
+                250,   
+                65,   
+                70,  
+                60,   
+                65,
+                65, 
+                65,  
+                800, 
+                70,
+                70,
+                80,
+                70
+
+            ];
+            function displayNextText(index) {
+                if(index < x.length) {
+                hienthichu(x[index], speeds[index], () => {
+                 displayNextText(index + 1)
+            });
+                    
+                }
+            }
+
+            displayNextText(0);
+        });
+
+    
+
+   </script>
+
+
+</body>
+</html>

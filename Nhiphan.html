@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị chữ dần dần</title>
+</head>
+<body>
+    <button id="start">Bắt đầu chạy</button>
+    <div id="text-container"></div> <!-- Nơi hiển thị chữ -->
+
+    <script>
+
+         function hienthichu(text, speed, callback) {
+            let index = 0;
+            function gg() {
+            if (index < text.length) {
+                
+                if (text.charAt(index) === "\n") {
+                    document.getElementById("text-container").innerHTML += "<br>";
+                } else {
+                    document.getElementById("text-container").innerHTML += text.charAt(index);
+                }
+                index++;
+                setTimeout(gg, speed);
+            } else if (callback) {
+                callback();
+            }
+        }
+        gg();
+    }
+        const st = document.getElementById("start");
+        st.addEventListener("click", () => {
+            let x = [
+                "Hey!\n",
+                " ",
+                "Anh vẫn nhớ tối đó khi hôn nhau đầu tiên là vào ngày mấy\n", 
+                "Mình cùng bước dưới phố con tim đập nhanh ngày đầu nắm tay\n",
+                "Từng một bầu trời đắm say\n",
+                " ",
+                "Giờ tìm lại cảm xúc nơi đâu ngày hôm ấy\n",
+                " ",
+                "Đằng nào thì mình cũng bước tiếp thôi\n",
+                "Anh quên hết rồi\n",
+                "Hạnh phúc hơn ở nơi không có em\n",
+                "Gặp người mới luôn ở kế bên chịu lắng nghe\n",
+                " ",
+                "Một người chẳng cố cho rằng tất cả tại anh sai...\n",
+                "Dù cho anh đã cố dối lòng em vẫn luôn trong đầu\n",
+                "Giờ anh cứ lơ ngơ ôm giấc mơ không màu\n",
+                "Chỉ mong em sẽ quay lại\n",
+                "So baby please make up your mind...\n",
+                "Anh cứ đi trên con đường xưa khi ta bên nhau\n",
+                "Tìm về nơi trước kia mình say sưa bao đêm thâu\n",
+                "Chờ một ngày tình cờ mình bước qua nhau 1 giây thôi\n",
+                "Để một lần được thấy như ta còn chung đôi...\n",
+                "Năm tháng qua anh luôn vờ như ta chưa chia ly\n",
+                "Dù hàng trăm lý do để con tim quên em đi\n",
+                "Từng ngày đều phải cố để luôn tươi cười\n",
+                "Trở thành một thằng ngáo ngơ\n",
+                "Anh ngáo ngơ vì em mà..."
+            ];
+
+            let speeds = [
+                50,   // Tốc độ cho câu đầu tiên
+                1000,
+                45,   // Tốc độ cho câu thứ hai
+                45,   // Tốc độ cho câu thứ ba
+                45,   // Tốc độ cho câu thứ tư
+                1000,
+                45,
+                1000,   
+                60,
+                60,   // Tốc độ cho câu thứ bảy
+                70,   // Tốc độ cho câu thứ tám
+                60,
+                1000,   // Tốc độ cho câu thứ chín
+                250,  // Tốc độ cho câu thứ mười
+                150,   // Tốc độ cho câu thứ mười một
+                200,   // Tốc độ cho câu thứ mười hai
+                180,   // Tốc độ cho câu thứ mười ba
+                150,   // Tốc độ cho câu thứ mười bốn
+                200,   // Tốc độ cho câu thứ mười lăm
+                250,   // Tốc độ cho câu thứ mười sáu
+                300,   // Tốc độ cho câu thứ mười bảy
+                120,   // Tốc độ cho câu thứ mười tám
+                250,   // Tốc độ cho câu thứ mười chín
+                200,   
+            ];
+            function displayNextText(index) {
+                if(index < x.length) {
+                hienthichu(x[index], speeds[index], () => {
+                 displayNextText(index + 1)
+            });
+                    
+                }
+            }
+
+            displayNextText(0);
+        });
+        
+    </script>
+</body>
+</html>

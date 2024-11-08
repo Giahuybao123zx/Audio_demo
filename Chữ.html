@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị chữ dần dần</title>
+</head>
+<body>
+    <button id="start">Bắt đầu chạy</button>
+    <div id="text-container"></div> <!-- Nơi hiển thị chữ -->
+
+    <script>
+         let speed = 0;
+          function hienthichu(text, speed, callback) {
+            let index = 0;
+            function hiechu() {
+            if (index < text.length) {
+                if (text.charAt(index) === "\n") {
+                    document.getElementById("text-container").innerHTML += "<br>"
+                 }
+            else {        
+                document.getElementById("text-container").innerHTML += text.charAt(index);
+              } 
+              index++;
+               setTimeout(hiechu, speed)
+          }  
+        else if(callback) {
+            callback();
+          }
+        }
+        hiechu();
+        }
+        
+          const st = document.getElementById("start");
+          st.addEventListener("click", () =>{
+            document.getElementById("text-container").innerHTML = ""; // Xóa nội dung trước đó
+            let a = "Hey!\n"
+            let z = "Anh vẫn nhớ tối đó khi hôn nhau đầu tiên là vào ngày mấy\n";
+            let y = "Mình cùng bước dưới phố con tim đập nhanh ngày đầu nắm tay\n"
+            let b = "Từng một bầu trời đắm say\n"
+            let c = "Giờ tìm lại cảm xúc nơi đâu ngày hôm ấy..................\n"
+            let d = "Đằng nào thì mình cũng bước tiếp thôi\n"
+            let e = "Anh quên hết rồi"
+
+             hienthichu(a, 200, ()=> {
+                hienthichu(z, 45, () =>{
+                    hienthichu(y, 50, () => {
+                        hienthichu(b, 60, () => { 
+                          hienthichu(c, 45, () => {  
+                                hienthichu(d, 45, () => {     
+                                    hienthichu(e, 55)
+                                })
+                            })
+                        })
+                    })
+
+                })
+             })
+           })
+
+           
+            
+
+          
+
+    </script>
+</body>
+</html>
